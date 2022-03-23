@@ -13,7 +13,7 @@ namespace Team_Database_Project
         public decimal Height { get; set; }
         public int Weight { get; set; }
         public int TeamNumber { get; set; }
-        public int SkillLevel { get; set; }
+        public decimal SkillLevel { get; set; }
 
        
 
