@@ -8,8 +8,14 @@ namespace CodeLouisvilleLibrary
 
         public class CodeLouisvilleAppBase
         {
+        private string v;
 
-            public static int Prompt4Integer(string prompt)
+        public CodeLouisvilleAppBase(string v)
+        {
+            this.v = v;
+        }
+
+        public static int Prompt4Integer(string prompt)
             {
                 int value;
 
