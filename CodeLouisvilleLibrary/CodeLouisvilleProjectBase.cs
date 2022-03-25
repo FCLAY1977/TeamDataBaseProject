@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading;
 
 namespace CodeLouisvilleLibrary
@@ -29,7 +34,7 @@ namespace CodeLouisvilleLibrary
             Console.Clear();
 
             bool Continue = true;
-            while (Continue)
+            while(Continue)
             {
                 Continue = Main();
             }
@@ -133,12 +138,17 @@ namespace CodeLouisvilleLibrary
 
         public static T Prompt4MenuItem<T>(string prompt, Menu<T> menu)
         {
-            return Prompt4MenuItem(prompt, menu.MenuItems);
+            return (T)Prompt4MenuItem(prompt, menu.MenuItems);
         }
 
         public static string Prompt4MenuItem(string prompt, Menu menu)
         {
             return Prompt4MenuItem(prompt, menu.MenuItems);
+        }
+
+        private static string Prompt4MenuItem(string prompt, object menuItems)
+        {
+            throw new NotImplementedException();
         }
 
         public static bool TryPrompt4Integer(out int value, string prompt = "", uint maxAttempts = 0, int minValue = int.MinValue, int maxValue = int.MaxValue)
@@ -209,7 +219,7 @@ namespace CodeLouisvilleLibrary
 
             do
             {
-                if (maxAttempts > 0) // if user has a limited number of attempts
+                if (maxAttempts > 0) 
                 {
                     attempt++;
                     WriteRetryPrompt(attempt, maxAttempts);
@@ -286,6 +296,11 @@ namespace CodeLouisvilleLibrary
         public static bool TryPrompt4MenuItem<T>(string prompt, Menu<T> menu, out T menuSelection, uint maxAttempts = 0)
         {
             return TryPrompt4MenuItem(prompt, menu.MenuItems, out menuSelection, maxAttempts);
+        }
+
+        private static bool TryPrompt4MenuItem<T>(string prompt, List<KeyValuePair<object, string>> menuItems, out T? menuSelection, uint maxAttempts)
+        {
+            throw new NotImplementedException();
         }
 
         public static void Animate(string[] parts, int pause = 500, int repeat = 1, bool clearWhenComplete = true, bool slide = false)

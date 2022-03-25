@@ -68,9 +68,9 @@ namespace Team_Database_Project
 
             { 
 
-                case 1: 
+                case 1:
 
-                    ListPlayersByName();
+                    ListPlayersbyName();  
 
                     break; 
 
@@ -82,7 +82,7 @@ namespace Team_Database_Project
 
                 case 3:
 
-                    ListPlayersByHeight(); 
+                     
 
                     break; 
 
