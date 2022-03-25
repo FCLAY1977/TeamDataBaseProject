@@ -45,7 +45,7 @@ namespace Team_Database_Project
 
         {
 
-            return $"{UniformNumber}\t{Position}\t{Name}\t{HeightAsString}\\{Weight}lbs\t{SkillLevel}";
+            return $"{UniformNumber}\t{Position}\t{Name}\t{HeightAsString}\\{Weight}lbs\t{SkillLevel}\t{FieldGoalPercentage}";
 
         }
 

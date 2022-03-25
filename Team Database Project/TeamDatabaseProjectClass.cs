@@ -23,9 +23,12 @@ namespace Team_Database_Project
 
         { 
 
-        } 
+        }
 
-  
+        internal void Run()
+        {
+            throw new NotImplementedException();
+        }
 
         protected override bool Main() 
 
@@ -37,15 +40,23 @@ namespace Team_Database_Project
 
             var mainMenu = new Menu<int>(); 
 
-            mainMenu.AddMenuItem(1, "List Entire Team"); 
+            mainMenu.AddMenuItem(1, "List Entire Team");
 
-            mainMenu.AddMenuItem(2, "List Players by Position"); 
+            mainMenu.AddMenuItem(2, "List Players By Name");
+            
+            mainMenu.AddMenuItem(3, "List Players by Position"); 
 
-            mainMenu.AddMenuItem(3, "List Players by Height"); 
+            mainMenu.AddMenuItem(4, "List Players by Height"); 
 
-            mainMenu.AddMenuItem(4, "List Players By Skill Level"); 
+            mainMenu.AddMenuItem(5, "List Players By Weight");
 
-            mainMenu.AddMenuItem(5, "Quit"); 
+            mainMenu.AddMenuItem(6, "List Players By Unifrom Number");
+
+            mainMenu.AddMenuItem(7, "List Players By Skill Level");
+
+            mainMenu.AddMenuItem(8, "List Players By Field Goal Percentage");            
+            
+            mainMenu.AddMenuItem(9, "Quit"); 
 
   
 
@@ -59,7 +70,7 @@ namespace Team_Database_Project
 
                 case 1: 
 
-                    // you do this 
+                    ListPlayersByName();
 
                     break; 
 
@@ -69,9 +80,9 @@ namespace Team_Database_Project
 
                     break; 
 
-                case 3: 
+                case 3:
 
-                    // you do this 
+                    ListPlayersByHeight(); 
 
                     break; 
 
@@ -222,9 +233,9 @@ namespace Team_Database_Project
 
                 case 3: 
 
-                    minSkill = 4.5M; 
+                    minSkill = 40M; 
 
-                    maxSkill = 99.0M; // just some number larger than any skill level 
+                    maxSkill = 100.0M;  
 
                     break; 
 
