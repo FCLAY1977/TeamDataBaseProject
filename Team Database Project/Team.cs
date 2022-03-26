@@ -18,7 +18,7 @@ namespace Team_Database_Project
             Init();
         }
 
-        public List<Player> FindByPosition(string position)
+        public List<Player> FindByName(string position)
 
         {
 

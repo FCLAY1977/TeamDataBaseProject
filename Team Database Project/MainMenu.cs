@@ -42,8 +42,10 @@ namespace CodeLouisvilleLibrary
 
         }
 
-
-
+        internal void AddMenuItem(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 

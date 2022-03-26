@@ -118,6 +118,11 @@ namespace Team_Database_Project
 
         }
 
+        private void ListPlayersbyName()
+        {
+            throw new NotImplementedException();
+        }
+
         private T Prompt4MenuItem<T>(string v, Menu<T> mainMenu)
         {
             throw new NotImplementedException();
@@ -167,7 +172,7 @@ namespace Team_Database_Project
 
             { 
 
-                List<Player> playersByPosition = MyTeam.FindByPosition(positionMenuSelection); 
+                List<Player> playersByPosition = MyTeam.FindByName(positionMenuSelection); 
 
                 ListPlayers(playersByPosition); 
 
@@ -181,9 +186,53 @@ namespace Team_Database_Project
 
             Console.Clear(); 
 
-        } 
+        }
 
-  
+        private void ListPlayersByName(void v)
+
+        {
+
+            Console.Clear();
+
+            var nameMenu = new Menu<string>();
+
+            nameMenu.AddMenuItem("List Name");
+
+           
+
+
+
+            string nameMenuSelection = Prompt4MenuItem<string>("Select a name:", nameMenu).ToString().ToUpper();
+            
+
+            
+
+            {
+
+                List<Player> playersByName = MyTeam.FindByName(nameMenuSelection);
+
+                ListPlayers(playersByName);
+
+            }
+
+
+
+            Console.Write("Press any key to continue: ");
+
+            Console.ReadKey();
+
+            Console.Clear();
+
+        }
+
+
+
+
+
+
+
+
+
 
         private void ListPlayersBySkillLevel() 
 
