@@ -7,9 +7,53 @@ using CodeLouisvilleLibrary;
 
 
 namespace CodeLouisvilleLibrary
+
 {
+
     public class Menu<T>
+
     {
-        public List<KeyValuePair<object, string>> MenuItems { get; internal set; }
+
+        private List<KeyValuePair<T, string>> menuItems = new List<KeyValuePair<T, string>>();
+
+
+
+        internal List<KeyValuePair<T, string>> MenuItems
+
+        {
+
+            get
+
+            {
+
+                return menuItems;
+
+            }
+
+        }
+
+
+
+        public void AddMenuItem(T menuKey, string menuText)
+
+        {
+
+            menuItems.Add(new KeyValuePair<T, string>(menuKey, menuText));
+
+        }
+
+
+
     }
+
+
+
+    public class Menu : Menu<string>
+
+    {
+
+
+
+    }
+
 }

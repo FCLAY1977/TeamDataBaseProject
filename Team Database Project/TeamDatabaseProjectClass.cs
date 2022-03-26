@@ -7,211 +7,165 @@ using CodeLouisvilleLibrary;
 
 
 
-namespace Team_Database_Project 
+namespace Team_Database_Project
 
-{ 
+{
 
-    public class TeamDatabaseProjectClass : CodeLouisvilleAppBase 
+    public class TeamDatabaseProjectClass : CodeLouisvilleAppBase
 
-    { 
+    {
 
-        private Team MyTeam = new Team("Wildcats"); 
+        private Team MyTeam = new Team("Wildcats");
 
-  
 
-        public TeamDatabaseProjectClass() : base("Team Database Project") 
 
-        { 
+        public TeamDatabaseProjectClass() : base("Team Database Project")
 
-        }
-
-        internal void Run()
         {
-            throw new NotImplementedException();
+
         }
 
-        protected override bool Main() 
 
-        { 
 
-            bool quit = false; 
+        protected override bool Main()
 
-  
+        {
 
-            var mainMenu = new Menu<int>(); 
+            bool quit = false;
+
+
+
+            var mainMenu = new Menu<int>();
 
             mainMenu.AddMenuItem(1, "List Entire Team");
 
-            mainMenu.AddMenuItem(2, "List Players By Name");
+            mainMenu.AddMenuItem(2, "List Players by Position");
+
+            mainMenu.AddMenuItem(3, "List Players by Height");
+
+            mainMenu.AddMenuItem(4, "List Players By Weight");
             
-            mainMenu.AddMenuItem(3, "List Players by Position"); 
+            mainMenu.AddMenuItem(5, "List Players By Skill Level");
 
-            mainMenu.AddMenuItem(4, "List Players by Height"); 
+            mainMenu.AddMenuItem(6, "Quit");
 
-            mainMenu.AddMenuItem(5, "List Players By Weight");
 
-            mainMenu.AddMenuItem(6, "List Players By Unifrom Number");
 
-            mainMenu.AddMenuItem(7, "List Players By Skill Level");
+            int mainMenuSelection = Prompt4MenuItem<int>("Select a menu option:", mainMenu);
 
-            mainMenu.AddMenuItem(8, "List Players By Field Goal Percentage");            
-            
-            mainMenu.AddMenuItem(9, "Quit"); 
 
-  
 
-            int mainMenuSelection = Prompt4MenuItem<int>("Select a menu option:", mainMenu); 
+            switch (mainMenuSelection)
 
-  
-
-            switch( mainMenuSelection) 
-
-            { 
+            {
 
                 case 1:
 
-                    ListPlayersbyName();  
+                    ListEntireTeam();
 
-                    break; 
+                    break;
 
-                case 2: 
+                case 2:
 
-                    ListPlayersByPosition(); 
+                    ListPlayersByPosition();
 
-                    break; 
+                    break;
 
                 case 3:
 
-                     
+                    ListPlayersByHeight(); 
 
-                    break; 
+                    break;
 
-                case 4: 
+                case 4:
 
-                    ListPlayersBySkillLevel(); 
+                    ListPlayersByWeight();
 
-                    break; 
+                    break;
 
-                case 5: 
 
-                    quit = true; 
+                case 5:
 
-                    break; 
+                    ListPlayersBySkillLevel();
 
-                default: 
+                    break;
 
-                    Console.WriteLine("Invalid Selection!"); 
 
-                    Console.Write("Press any key to continue: "); 
+                case 6:
 
-                    Console.ReadKey(); 
+                    quit = true;
 
-                    Console.Clear(); 
+                    break;
 
-                    break; 
+                default:
 
-            } 
+                    Console.WriteLine("Invalid Selection!");
 
-  
+                    Console.Write("Press any key to continue: ");
 
-            return !quit; 
+                    Console.ReadKey();
+
+                    Console.Clear();
+
+                    break;
+
+            }
+
+
+
+            return !quit;
 
         }
 
-        private void ListPlayersbyName()
+
+
+        private void ListPlayers(List<Player> players)
+
         {
-            throw new NotImplementedException();
-        }
 
-        private T Prompt4MenuItem<T>(string v, Menu<T> mainMenu)
-        {
-            throw new NotImplementedException();
-        }
+            foreach (Player player in players)
 
-        private void ListPlayers(List<Player> players) 
+            {
 
-        { 
+                Console.WriteLine(player);
 
-            foreach (Player player in players) 
-
-            { 
-
-                Console.WriteLine(player); 
-
-            } 
-
-        } 
-
-  
-
-        private void ListPlayersByPosition() 
-
-        { 
-
-            Console.Clear(); 
-
-            var positionMenu = new Menu<char>(); 
-
-            positionMenu.AddMenuItem('G', "List Guards"); 
-
-            positionMenu.AddMenuItem('F', "List Forwards"); 
-
-            positionMenu.AddMenuItem('C', "List Centers"); 
-
-  
-
-            string positionMenuSelection = Prompt4MenuItem<char>("Select a position:", positionMenu).ToString().ToUpper(); 
-
-  
-
-            if (positionMenuSelection != "G" && positionMenuSelection != "F" && positionMenuSelection != "C") 
-
-                Console.WriteLine("Invalid Selection"); 
-
-            else 
-
-            { 
-
-                List<Player> playersByPosition = MyTeam.FindByName(positionMenuSelection); 
-
-                ListPlayers(playersByPosition); 
-
-            } 
-
-  
-
-            Console.Write("Press any key to continue: "); 
-
-            Console.ReadKey(); 
-
-            Console.Clear(); 
+            }
 
         }
 
-        private void ListPlayersByName(void v)
+
+
+        private void ListPlayersByPosition()
 
         {
 
             Console.Clear();
 
-            var nameMenu = new Menu<string>();
+            var positionMenu = new Menu<char>();
 
-            nameMenu.AddMenuItem("List Name");
+            positionMenu.AddMenuItem('G', "List Guards");
 
-           
+            positionMenu.AddMenuItem('F', "List Forwards");
+
+            positionMenu.AddMenuItem('C', "List Centers");
 
 
 
-            string nameMenuSelection = Prompt4MenuItem<string>("Select a name:", nameMenu).ToString().ToUpper();
-            
+            string positionMenuSelection = Prompt4MenuItem<char>("Select a position:", positionMenu).ToString().ToUpper();
 
-            
+
+
+            if (positionMenuSelection != "G" && positionMenuSelection != "F" && positionMenuSelection != "C")
+
+                Console.WriteLine("Invalid Selection");
+
+            else
 
             {
 
-                List<Player> playersByName = MyTeam.FindByName(nameMenuSelection);
+                List<Player> playersByPosition = MyTeam.FindByPosition(positionMenuSelection);
 
-                ListPlayers(playersByName);
+                ListPlayers(playersByPosition);
 
             }
 
@@ -225,101 +179,178 @@ namespace Team_Database_Project
 
         }
 
+        private void ListPlayersBySkillLevel()
+
+        {
+
+            Console.Clear();
 
 
 
+            var skillMenu = new Menu<int>();
+
+            skillMenu.AddMenuItem(1, "List Players with Skill Level < 4");
+
+            skillMenu.AddMenuItem(2, "List Players with Skill Level between 4 and 4.5");
+
+            skillMenu.AddMenuItem(3, "List Players with Skill Level > 4.5");
 
 
 
+            int skillMenuSelection = Prompt4MenuItem<int>("Select a skill level:", skillMenu);
 
 
 
-        private void ListPlayersBySkillLevel() 
+            bool validSelection = true;
 
-        { 
+            decimal minSkill = 0.0M;
 
-            Console.Clear(); 
+            decimal maxSkill = 0.0M;
 
-  
+            switch (skillMenuSelection)
 
-            var skillMenu = new Menu<int>(); 
+            {
 
-            skillMenu.AddMenuItem(1, "List Players with Skill Level < 4"); 
+                case 1:
 
-            skillMenu.AddMenuItem(2, "List Players with Skill Level between 4 and 4.5"); 
+                    maxSkill = 4.0M;
 
-            skillMenu.AddMenuItem(3, "List Players with Skill Level > 4.5"); 
+                    break;
 
-  
+                case 2:
 
-            int skillMenuSelection = Prompt4MenuItem<int>("Select a skill level:", skillMenu); 
+                    minSkill = 4.0M;
 
-  
+                    maxSkill = 4.5M;
 
-            bool validSelection = true; 
+                    break;
 
-            decimal minSkill = 0.0M; 
+                case 3:
 
-            decimal maxSkill = 0.0M; 
+                    minSkill = 4.5M;
 
-            switch(skillMenuSelection) 
+                    maxSkill = 99.0M; // just some number larger than any skill level 
 
-            { 
+                    break;
 
-                case 1: 
+                default:
 
-                    maxSkill = 4.0M; 
+                    validSelection = false;
 
-                    break; 
+                    Console.WriteLine("Invalid Selection");
 
-                case 2: 
+                    break;
 
-                    minSkill = 4.0M; 
+            }
 
-                    maxSkill = 4.5M; 
 
-                    break; 
 
-                case 3: 
+            if (validSelection)
 
-                    minSkill = 40M; 
+            {
 
-                    maxSkill = 100.0M;  
+                List<Player> playersBySkill = MyTeam.FindBySkillLevel(minSkill, maxSkill);
 
-                    break; 
+                ListPlayers(playersBySkill);
 
-                default: 
+            }
 
-                    validSelection = false; 
 
-                    Console.WriteLine("Invalid Selection"); 
 
-                    break; 
+            Console.Write("Press any key to continue: ");
 
-            } 
+            Console.ReadKey();
 
-  
+            Console.Clear();
 
-            if(validSelection) 
+        }
 
-            { 
+        private void ListPlayersByWeight()
 
-                List<Player> playersBySkill = MyTeam.FindBySkillLevel(minSkill, maxSkill); 
+        {
 
-                ListPlayers(playersBySkill); 
+            Console.Clear();
 
-            } 
 
-  
 
-            Console.Write("Press any key to continue: "); 
+            var weightMenu = new Menu<int>();
 
-            Console.ReadKey(); 
+            weightMenu.AddMenuItem(1, "List Players with Weight < 150");
 
-            Console.Clear(); 
+            weightMenu.AddMenuItem(2, "List Players with Weight between 150 and 200");
 
-        } 
+            weightMenu.AddMenuItem(3, "List Players with Weight > 200");
 
-    } 
 
-} 
+
+            int weightMenuSelection = Prompt4MenuItem<int>("Select a weight:", weightMenu);
+
+
+
+            bool validSelection = true;
+
+            decimal minWeight = 0.0M;
+
+            decimal maxWeight = 0.0M;
+
+            switch (weightMenuSelection)
+
+            {
+
+                case 1:
+
+                    maxWeight = 250M;
+
+                    break;
+
+                case 2:
+
+                    minWeight = 150.0M;
+
+                    maxWeight = 200M;
+
+                    break;
+
+                case 3:
+
+                    minWeight = 200;
+
+                    maxWeight = 500; 
+
+                    break;
+
+                default:
+
+                    validSelection = false;
+
+                    Console.WriteLine("Invalid Selection");
+
+                    break;
+
+            }
+
+
+
+            if (validSelection)
+
+            {
+
+                List<Player> playersByWeight = MyTeam.FindByWeight(minWeight, maxWeight);
+
+                ListPlayers(playersByWeight);
+
+            }
+
+
+
+            Console.Write("Press any key to continue: ");
+
+            Console.ReadKey();
+
+            Console.Clear();
+
+        }
+
+    }
+
+}

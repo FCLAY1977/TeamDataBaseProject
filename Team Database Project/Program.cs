@@ -6,48 +6,59 @@ using System.Text;
 using System.Threading.Tasks;
 using CodeLouisvilleLibrary;
 
+
+
+
 namespace TeamDatabase
+
+{
+
+    public class Program
 
     {
 
-        public class Program
+        public static void Main()
 
         {
 
-            public static void Main()
+            var teamDBProj = new TeamDatabaseProjectClass();
 
-            {
-
-                var teamDBProj = new TeamDatabaseProjectClass();
-
-                teamDBProj.Run();
-
-            }
+            teamDBProj.Run();
 
         }
 
     }
 
-
-
-    
-
-
-        
-
-        
-        
-        
-        
-        
-        
-     
+}
 
 
 
 
 
-   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
