@@ -229,7 +229,7 @@ namespace Team_Database_Project
 
                     minSkill = 4.5M;
 
-                    maxSkill = 99.0M; // just some number larger than any skill level 
+                    maxSkill = 99.0M;
 
                     break;
 
@@ -264,6 +264,10 @@ namespace Team_Database_Project
             Console.Clear();
 
         }
+
+
+
+
 
         private void ListPlayersByWeight()
 
@@ -353,4 +357,111 @@ namespace Team_Database_Project
 
     }
 
+
+    private void ListPlayersByHeight()
+
+    {
+
+        Console.Clear();
+
+
+
+        var HeightMenu = new Menu<int>();
+
+        HeightMenu.AddMenuItem(1, "List Players with Height < 6.0M");
+
+        HeightMenu.AddMenuItem(2, "List Players with Height between 6.0M and 6.5M");
+
+        HeightMenu.AddMenuItem(3, "List Players with Height > 6.5");
+
+
+
+        int HeightMenuSelection = Prompt4MenuItem<int>("Select a Height:", HeightMenu);
+
+
+
+        bool validSelection = true;
+
+        decimal minHeight = 0.0M;
+
+        decimal maxHeight = 0.0M;
+
+        switch (HeightMenuSelection)
+
+        {
+
+            case 1:
+
+                maxHeight = 7.0M;
+
+                break;
+
+            case 2:
+
+                minHeight = 6.0M;
+
+                maxHeight = 6.5M;
+
+                break;
+
+            case 3:
+
+                minHeight = 6.5M;
+
+                maxHeight = 8.0M;
+
+                break;
+
+            default:
+
+                validSelection = false;
+
+                Console.WriteLine("Invalid Selection");
+
+                break;
+
+        }
+
+
+
+        if (validSelection)
+
+        {
+
+            List<Player> playersByHeight = MyTeam.FindByHeight(minHeight, maxHeight);
+
+            ListPlayers(playersByHeight);
+
+        }
+
+
+
+        Console.Write("Press any key to continue: ");
+
+        Console.ReadKey();
+
+        Console.Clear();
+
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

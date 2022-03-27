@@ -18,7 +18,7 @@ namespace Team_Database_Project
             Init();
         }
 
-        public List<Player> FindByName(string position)
+        public List<Player> FindByPosition(string position)
 
         {
 
@@ -35,6 +35,26 @@ namespace Team_Database_Project
             return this.Where(p => p.SkillLevel >= minSkill && p.SkillLevel < maxSkill).OrderBy(p => p.SkillLevel).ThenBy(p => p.UniformNumber).ToList();
 
         }
+
+
+        public List<Player> FindByWeight(decimal minWeight, decimal maxWeight)
+
+        {
+
+            return this.Where(p => p.Weight >= minWeight && p.Weight < maxWeight).OrderBy(p => p.SkillLevel).ThenBy(p => p.UniformNumber).ToList();
+
+        }
+
+
+
+        public List<Player> FindByHeight(decimal minHeight, decimal maxHeight)
+
+        {
+
+            return this.Where(p => p.Height >= minHeight && p.Weight < maxHeight).OrderBy(p => p.SkillLevel).ThenBy(p => p.UniformNumber).ToList();
+
+        }
+
 
 
 
