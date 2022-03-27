@@ -8,7 +8,7 @@ using CodeLouisvilleLibrary;
 
 namespace Team_Database_Project
 {
-    public class Team:List<Player>
+    public class Team : List<Player>
     {
         public string Name { get; set; }
 
@@ -62,7 +62,7 @@ namespace Team_Database_Project
 
 
         private void Init()
-        { 
+        {
             var player1 = new Player();
             player1.Name = "Paul Smith";
             player1.Height = 6.3M;
@@ -111,7 +111,7 @@ namespace Team_Database_Project
             var player5 = new Player();
             player5.Name = "Kai Towns";
             player5.Height = 6.11M;
-            player5.Position = "F";
+            player5.Position = "C";
             player5.Weight = 223;
             player5.UniformNumber = 12;
             player5.SkillLevel = 5;
@@ -143,7 +143,7 @@ namespace Team_Database_Project
             var player8 = new Player();
             player8.Name = "Pat Wiley";
             player8.Height = 6.9M;
-            player8.Position = "F";
+            player8.Position = "C";
             player8.Weight = 168;
             player8.UniformNumber = 42;
             player8.SkillLevel = 4;
@@ -220,5 +220,5 @@ namespace Team_Database_Project
 
         }
 
-     }
+    }
 }

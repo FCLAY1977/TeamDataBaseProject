@@ -37,9 +37,7 @@ namespace Team_Database_Project
 
 
 
-        // this will display a player. \t is a tab 
-
-        // FRED YOU MAY WANT TO CHANGE THIS TO DISPLAY DIFFERENTLY 
+       
 
         public override string ToString()
 
@@ -51,12 +49,12 @@ namespace Team_Database_Project
 
     }
 
-} 
-    
-    
-    
+}
 
- 
+
+
+
+
 
 
 

@@ -44,7 +44,7 @@ namespace Team_Database_Project
             mainMenu.AddMenuItem(3, "List Players by Height");
 
             mainMenu.AddMenuItem(4, "List Players By Weight");
-            
+
             mainMenu.AddMenuItem(5, "List Players By Skill Level");
 
             mainMenu.AddMenuItem(6, "Quit");
@@ -73,7 +73,7 @@ namespace Team_Database_Project
 
                 case 3:
 
-                    ListPlayersByHeight(); 
+                    ListPlayersByHeight();
 
                     break;
 
@@ -133,6 +133,34 @@ namespace Team_Database_Project
 
         }
 
+        private void List()
+
+        {
+
+            Console.Clear();
+
+            var playerMenu = new Menu<char>();
+
+            playerMenu.AddMenuItem( "List All");
+
+            
+
+            string playerMenuSelection = Prompt4MenuItem<char>("Select all:", playerMenu).ToString().ToUpper();
+
+
+
+            
+
+            Console.Write("Press any key to continue: ");
+
+            Console.ReadKey();
+
+            Console.Clear();
+
+        }
+
+
+
 
 
         private void ListPlayersByPosition()
@@ -178,6 +206,7 @@ namespace Team_Database_Project
             Console.Clear();
 
         }
+
 
         private void ListPlayersBySkillLevel()
 
@@ -269,6 +298,96 @@ namespace Team_Database_Project
 
 
 
+
+
+
+        private void ListPlayersByHeight()
+
+        {
+
+            Console.Clear();
+
+
+
+            var HeightMenu = new Menu<int>();
+
+            HeightMenu.AddMenuItem(1, "List Players with Height < 6.0M");
+
+            HeightMenu.AddMenuItem(2, "List Players with Height between 6.0M and 6.5M");
+
+            HeightMenu.AddMenuItem(3, "List Players with Height > 6.5");
+
+
+
+            int HeightMenuSelection = Prompt4MenuItem<int>("Select a Height:", HeightMenu);
+
+
+
+            bool validSelection = true;
+
+            decimal minHeight = 0.0M;
+
+            decimal maxHeight = 0.0M;
+
+            switch (HeightMenuSelection)
+
+            {
+
+                case 1:
+
+                    maxHeight = 7.0M;
+
+                    break;
+
+                case 2:
+
+                    minHeight = 6.0M;
+
+                    maxHeight = 6.5M;
+
+                    break;
+
+                case 3:
+
+                    minHeight = 6.5M;
+
+                    maxHeight = 8.0M;
+
+                    break;
+
+                default:
+
+                    validSelection = false;
+
+                    Console.WriteLine("Invalid Selection");
+
+                    break;
+
+            }
+
+
+
+            if (validSelection)
+
+            {
+
+                List<Player> playersByHeight = MyTeam.FindByHeight(minHeight, maxHeight);
+
+                ListPlayers(playersByHeight);
+
+            }
+
+
+
+            Console.Write("Press any key to continue: ");
+
+            Console.ReadKey();
+
+            Console.Clear();
+
+        }
+
+
         private void ListPlayersByWeight()
 
         {
@@ -319,7 +438,7 @@ namespace Team_Database_Project
 
                     minWeight = 200;
 
-                    maxWeight = 500; 
+                    maxWeight = 500;
 
                     break;
 
@@ -358,93 +477,64 @@ namespace Team_Database_Project
     }
 
 
-    private void ListPlayersByHeight()
-
-    {
-
-        Console.Clear();
 
 
 
-        var HeightMenu = new Menu<int>();
-
-        HeightMenu.AddMenuItem(1, "List Players with Height < 6.0M");
-
-        HeightMenu.AddMenuItem(2, "List Players with Height between 6.0M and 6.5M");
-
-        HeightMenu.AddMenuItem(3, "List Players with Height > 6.5");
 
 
 
-        int HeightMenuSelection = Prompt4MenuItem<int>("Select a Height:", HeightMenu);
 
 
 
-        bool validSelection = true;
-
-        decimal minHeight = 0.0M;
-
-        decimal maxHeight = 0.0M;
-
-        switch (HeightMenuSelection)
-
-        {
-
-            case 1:
-
-                maxHeight = 7.0M;
-
-                break;
-
-            case 2:
-
-                minHeight = 6.0M;
-
-                maxHeight = 6.5M;
-
-                break;
-
-            case 3:
-
-                minHeight = 6.5M;
-
-                maxHeight = 8.0M;
-
-                break;
-
-            default:
-
-                validSelection = false;
-
-                Console.WriteLine("Invalid Selection");
-
-                break;
-
-        }
 
 
 
-        if (validSelection)
-
-        {
-
-            List<Player> playersByHeight = MyTeam.FindByHeight(minHeight, maxHeight);
-
-            ListPlayers(playersByHeight);
-
-        }
 
 
 
-        Console.Write("Press any key to continue: ");
 
-        Console.ReadKey();
 
-        Console.Clear();
 
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
+
+
 
 
 
