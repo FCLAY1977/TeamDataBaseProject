@@ -51,9 +51,22 @@ namespace Team_Database_Project
 
         {
 
-            return this.Where(p => p.Height >= minHeight && p.Weight < maxHeight).OrderBy(p => p.SkillLevel).ThenBy(p => p.UniformNumber).ToList();
+            return this.Where(p => p.Height >= minHeight && p.Height < maxHeight).OrderBy(p => p.SkillLevel).ThenBy(p => p.UniformNumber).ToList();
 
         }
+
+
+
+        public List<Player> FindByUniformNumber(int UniformNumber)
+
+        {
+
+            return this.Where(p => p.UniformNumber).OrderBy(p => p.SkillLevel).ThenBy(p => p.UniformNumber).ToList();
+
+        }
+
+
+
 
 
 

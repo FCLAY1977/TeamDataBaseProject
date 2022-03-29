@@ -47,7 +47,9 @@ namespace Team_Database_Project
 
             mainMenu.AddMenuItem(5, "List Players By Skill Level");
 
-            mainMenu.AddMenuItem(6, "Quit");
+            mainMenu.AddMenuItem(6, "ListPlayers By Uniform Number");
+
+            mainMenu.AddMenuItem(7, "Quit");
 
 
 
@@ -90,8 +92,13 @@ namespace Team_Database_Project
 
                     break;
 
-
                 case 6:
+
+                    ListPlayersByUniformNumber();
+
+                    break;
+
+                case 7:
 
                     quit = true;
 
@@ -126,6 +133,14 @@ namespace Team_Database_Project
            
 
         }
+
+
+
+
+       
+
+
+
 
 
 
@@ -323,7 +338,7 @@ namespace Team_Database_Project
 
                 case 1:
 
-                    maxHeight = 7.0M;
+                    maxHeight = 6.0M;
 
                     break;
 
@@ -410,7 +425,7 @@ namespace Team_Database_Project
 
                 case 1:
 
-                    maxWeight = 250M;
+                    maxWeight = 150.0M;
 
                     break;
 
@@ -461,6 +476,74 @@ namespace Team_Database_Project
             Console.Clear();
 
         }
+
+        private void ListPlayersByUniformNumber()
+        
+        {
+
+            Console.Clear();
+
+            var uniformnumberMenu = new Menu<int>();
+
+            int uniformnumberMenuSelection = Prompt4MenuItem<int>("Enter a Uniform Number: ", uniformnumberMenu);
+
+            
+            
+            
+            
+            Console.Write("Press any key to continue: ");
+
+            Console.ReadKey();
+
+            Console.Clear();
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 
