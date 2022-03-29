@@ -118,6 +118,18 @@ namespace Team_Database_Project
         }
 
 
+        private void ListEntireTeam()
+        {
+
+            ListPlayers(MyTeam);
+
+           
+
+        }
+
+
+
+
 
         private void ListPlayers(List<Player> players)
 
@@ -133,31 +145,7 @@ namespace Team_Database_Project
 
         }
 
-        private void List()
-
-        {
-
-            Console.Clear();
-
-            var playerMenu = new Menu<char>();
-
-            playerMenu.AddMenuItem( "List All");
-
-            
-
-            string playerMenuSelection = Prompt4MenuItem<char>("Select all:", playerMenu).ToString().ToUpper();
-
-
-
-            
-
-            Console.Write("Press any key to continue: ");
-
-            Console.ReadKey();
-
-            Console.Clear();
-
-        }
+        
 
 
 
