@@ -472,14 +472,14 @@ namespace Team_Database_Project
 
             Console.Clear();
 
-             static bool TryPrompt4Integer(out int value, string prompt = "Enter A Uniform Number: ", uint maxAttempts = 0, int minValue = int.MinValue, int maxValue = int.MaxValue)
+             static bool TryPrompt4Integer(out int value, string prompt = "Enter A Uniform Number: ", uint maxAttempts = 3, int minValue = int.MinValue, int maxValue = int.MaxValue)
             {
                 if (minValue > maxValue)
                     throw new ArgumentException("minValue must be <= maxValue");
 
                 if (string.IsNullOrWhiteSpace(prompt))
                 {
-                    StringBuilder newPrompt = new StringBuilder("Enter a number");
+                    StringBuilder newPrompt = new("Enter A Uniform Number: ");
                     if (minValue != int.MinValue)
                         newPrompt.Append($" >= {minValue}");
                     if (minValue != int.MinValue && maxValue != int.MaxValue)
