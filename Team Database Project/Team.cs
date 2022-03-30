@@ -57,12 +57,12 @@ namespace Team_Database_Project
 
 
 
-        public List<Player> FindByUniformNumber( int UniformNumber)
+        public List<Player> FindByUniformNumber(int UniformNumber)
 
         {
 
             return this.Where(p => p.UniformNumber == UniformNumber).OrderBy(p => p.UniformNumber).ToList();
-
+           
         }
 
 

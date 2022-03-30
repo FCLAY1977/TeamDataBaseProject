@@ -47,7 +47,7 @@ namespace Team_Database_Project
 
             mainMenu.AddMenuItem(5, "List Players By Skill Level");
 
-            mainMenu.AddMenuItem(6, "ListPlayers By Uniform Number");
+            mainMenu.AddMenuItem(6, "List Players By Uniform Number");
 
             mainMenu.AddMenuItem(7, "Quit");
 
@@ -472,55 +472,54 @@ namespace Team_Database_Project
 
             Console.Clear();
 
-             static bool TryPrompt4Integer(out int value, string prompt = "Enter A Uniform Number: ", uint maxAttempts = 3, int minValue = int.MinValue, int maxValue = int.MaxValue)
-            {
-                if (minValue > maxValue)
-                    throw new ArgumentException("minValue must be <= maxValue");
+            int UniformNumber;
+            
+            Console.WriteLine("Please enter a Uniform Number: ");
+;
+            string userinput = Console.ReadLine();
 
-                if (string.IsNullOrWhiteSpace(prompt))
-                {
-                    StringBuilder newPrompt = new("Enter A Uniform Number: ");
-                    if (minValue != int.MinValue)
-                        newPrompt.Append($" >= {minValue}");
-                    if (minValue != int.MinValue && maxValue != int.MaxValue)
-                        newPrompt.Append(" and");
-                    if (maxValue != int.MaxValue)
-                        newPrompt.Append($" <= {maxValue}");
-                    if (maxAttempts > 0)
-                        newPrompt.Append($" (You will get {maxAttempts} tries)");
-                    newPrompt.Append(": ");
-                    prompt = newPrompt.ToString();
-                }
+            int inputValue = int.Parse(userinput);
 
-                bool success = false;
-                uint attempt = 0;
-                bool quit = false;
+            Console.WriteLine($"Your selection is:{inputValue} ");
 
-                do
-                {
+            List<Player> playersByUniformNumber = MyTeam.FindByUniformNumber;
+
+            ListPlayers(playersByUniformNumber);
 
 
-                    success = int.TryParse(Console.ReadLine(), out value);
-                    if (!success)
-                        Console.WriteLine("Entry is not a number.");
-                    else if (value < minValue || value > maxValue)
-                    {
-                        // they entered a number but it's outside of the range
-                        // we wanted
-                        success = false;
-                        Console.WriteLine($"Input must be between {minValue} and {maxValue}");
-                    }
 
-                    // quit when they've entered a number like we've asked
-                    // OR they've exceeded the maximum number of allowed attempts
-                    quit = success || attempt >= maxAttempts;
+            Console.Write("Press any key to continue: ");
 
-                    if (!quit) Console.WriteLine();
+            Console.ReadKey();
 
-                } while (!quit);
+            Console.Clear();
 
-                return success;
-            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
