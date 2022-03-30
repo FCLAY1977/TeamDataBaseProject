@@ -61,7 +61,7 @@ namespace Team_Database_Project
 
         {
 
-            return this.Where(p => p.UniformNumber).OrderBy(p => p.SkillLevel).ThenBy(p => p.UniformNumber).ToList();
+            return this.Where(p => +p.UniformNumber = UniformNumber).OrderBy(p => +p.UniformNumber).ThenBy(p => +p.UniformNumber = UniformNumber ).ToList();
 
         }
 
