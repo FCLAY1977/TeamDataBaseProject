@@ -45,11 +45,9 @@ namespace Team_Database_Project
 
             mainMenu.AddMenuItem(4, "List Players By Weight");
 
-            mainMenu.AddMenuItem(5, "List Players By Skill Level");
+            mainMenu.AddMenuItem(5, "List Players By Skill Level"); 
 
-            mainMenu.AddMenuItem(6, "List Players By Uniform Number");
-
-            mainMenu.AddMenuItem(7, "Quit");
+            mainMenu.AddMenuItem(6, "Quit");
 
 
 
@@ -92,13 +90,9 @@ namespace Team_Database_Project
 
                     break;
 
+                     
+
                 case 6:
-
-                    ListPlayersByUniformNumber();
-
-                    break;
-
-                case 7:
 
                     quit = true;
 
@@ -466,33 +460,7 @@ namespace Team_Database_Project
 
         }
 
-        private void ListPlayersByUniformNumber()
-        
-        {
-
-            Console.Clear();
-
-            int UniformNumber;
-            
-            Console.WriteLine("Please enter a Uniform Number: ");
-;
-            string userinput = Console.ReadLine();
-
-            int inputValue = int.Parse(userinput);
-
-            Console.WriteLine($"Your selection is:{inputValue} ");
-
-            List<Player> playersByUniformNumber = MyTeam.FindByUniformNumber(UniformNumber);
-
-            ListPlayers(playersByUniformNumber);
-
-
-
-            Console.Write("Press any key to continue: ");
-
-            Console.ReadKey();
-
-            Console.Clear();
+       
 
 
 
@@ -662,7 +630,7 @@ namespace Team_Database_Project
 
 
 
-}
+
 
 
 
