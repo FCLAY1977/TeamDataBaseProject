@@ -482,7 +482,7 @@ namespace Team_Database_Project
 
             Console.WriteLine($"Your selection is:{inputValue} ");
 
-            List<Player> playersByUniformNumber = MyTeam.FindByUniformNumber;
+            List<Player> playersByUniformNumber = MyTeam.FindByUniformNumber(UniformNumber);
 
             ListPlayers(playersByUniformNumber);
 
